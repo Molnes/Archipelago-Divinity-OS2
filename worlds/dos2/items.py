@@ -17,14 +17,12 @@ SKILLS = {
         "TacticalRetreat",
         "PhoenixDive",
         "BonePileBurrow",
-        "CatJump"
     ],
     "MultiStrike_": [
         "BlinkStrike",
         "Vault"
     ],
     "Projectile_": [
-        "StaffOfMagus",
         "FlareStart",
         "InfectiousFlame",
         "ChainHeal",
@@ -46,6 +44,7 @@ SKILLS = {
         "PyroclasticRock",
         "PyroclasticEruption",
         "LightningBolt",
+        "InsectLightningBolt",
         "Superconductor",
         "PiercingShot",
         "Snipe",
