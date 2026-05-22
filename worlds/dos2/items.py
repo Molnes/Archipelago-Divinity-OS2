@@ -44,7 +44,6 @@ SKILLS = {
         "PyroclasticRock",
         "PyroclasticEruption",
         "LightningBolt",
-        "InsectLightningBolt",
         "Superconductor",
         "PiercingShot",
         "Snipe",
