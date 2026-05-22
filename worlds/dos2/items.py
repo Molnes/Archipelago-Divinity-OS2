@@ -16,10 +16,6 @@ SKILLS = {
         "CloakAndDagger",
         "TacticalRetreat",
         "PhoenixDive",
-        "AutomatonJetJump",
-        "TitanDive",
-        "DragonDive",
-        "TentacleDive",
         "BonePileBurrow",
         "CatJump"
     ],
@@ -50,7 +46,6 @@ SKILLS = {
         "PyroclasticRock",
         "PyroclasticEruption",
         "LightningBolt",
-        "InsectLightningBolt",
         "Superconductor",
         "PiercingShot",
         "Snipe",
