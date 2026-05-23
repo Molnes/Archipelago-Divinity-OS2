@@ -1,6 +1,9 @@
+from typing import TYPE_CHECKING
+
 from BaseClasses import Entrance, Region
 
-from .world import DOS2
+if TYPE_CHECKING:
+    from .world import DOS2
 
 TUT_Tutorial = {
     "Starting Deck": "TUT - Starting Deck",
@@ -16,17 +19,18 @@ FTJ = {
     "Past Fort": "Past Fort Joy",
 }
 
-def create_regions(world : DOS2):
 
+def create_regions(world: "DOS2"):
 
     Tutorial = create_region(TUT_Tutorial["Starting Deck"], world)
     Tutorial.exits.append(Entrance(world.player, "Ladder To LowerDeck", Tutorial))
     world.regions.append(Tutorial)
-    
+
     Tutorial_LowerDeck = create_region(TUT_Tutorial["Lower Deck"], world)
-    
+
     Tutorial_LowerDeck_Attacked = create_region(TUT_Tutorial["Lower Deck Attacked"], world)
     Tutorial_LowerDeck.exits.append(Entrance(world.player, "Triggered Windego", ""))
 
-def create_region(name : str, world : DOS2):
-    return Region(TUT_Tutorial["Starting Deck"], world.player, world.multiworld) 
+
+def create_region(name: str, world: "DOS2"):
+    return Region(name, world.player, world.multiworld)

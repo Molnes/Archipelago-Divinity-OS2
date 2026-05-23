@@ -1,5 +1,7 @@
 from worlds.AutoWorld import World
 
+from . import items, locations, options, regions, web_world
+
 
 class DOS2(World):
     """
@@ -9,18 +11,13 @@ class DOS2(World):
     game = "Divinity: Original Sin 2"
     item_name_to_id = {}
     location_name_to_id = {}
-    options_dataclass = None
-    options: None
+    options_dataclass = options.DOS2Options
+    options: options.DOS2Options
     item_name_groups = {}
-    web = None
-
-    def __init__(self, multiworld, player):
-        super().__init__(multiworld, player)
+    web = web_world.DOS2WebWorld()
 
     def create_regions(self):
-        return super().create_regions()
-    
+        regions.create_regions(self)
+
     def generate_basic(self):
         return super().generate_basic()
-    
-    
