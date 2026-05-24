@@ -12,6 +12,8 @@ from typing import Dict, Iterable, List, Tuple
 import ModuleUpdate
 import Utils
 
+from .world import DOS2
+
 ModuleUpdate.update()
 
 
@@ -48,6 +50,8 @@ class DOS2ClientContext(CommonContext):
     def __init__(self, server_address, password):
         super(DOS2ClientContext, self).__init__(server_address, password)
         self.syncing = False
+        appdata_dos2 = ""
+        game_options = DOS2.settings
 
     def run_gui(self):
         from kvui import GameManager

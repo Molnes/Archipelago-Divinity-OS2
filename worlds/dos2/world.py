@@ -1,6 +1,8 @@
+from typing import ClassVar
+
 from worlds.AutoWorld import World
 
-from . import items, locations, options, regions, web_world
+from . import items, locations, options, regions, settings, web_world
 
 
 class DOS2(World):
@@ -14,6 +16,7 @@ class DOS2(World):
     options_dataclass = options.DOS2Options
     options: options.DOS2Options
     item_name_groups = {}
+    settings = ClassVar[settings.DOS2Settings]
     web = web_world.DOS2WebWorld()
 
     def create_regions(self):
