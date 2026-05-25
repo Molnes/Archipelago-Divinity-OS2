@@ -1,10 +1,18 @@
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
+
+from BaseClasses import Location
+
+if TYPE_CHECKING:
+    from .world import DOS2
 
 
 Kill_Tut = {
     "S_TUT_Sheep_122fdf4d-59df-46ea-8192-93700598b51f": "Mean Sheep",
     "TUT_CargoDeck_Humans_Male_Magister_Grunt_000_a06e61dd-58c6-4119-99be-716c3a4fc1ef": "Cargo Prisoner Person",
     "S_TUT_CargoHold_UnrulyPrisoner_d7a61dc6-a249-4e97-9914-53ea24e320ae": "Prisoner",
-    "S_TUT_Magister6_b8e00c9c-8f50-4630-933b-958974866724": "Rick", 
+    "S_TUT_Magister6_b8e00c9c-8f50-4630-933b-958974866724": "Rick",
     "S_TUT_Magister5_41d4c470-7aa1-4fba-8d46-16bb761b085a": "Murtof",
     "S_TUT_TopDeckVoidling10_bd0123ae-26fd-4dad-8326-b6ae9a3fc1c5": "TopDeck Voidling 1",
     "S_TUT_TopDeckVoidling11_2fcb5b84-875f-42bd-ac80-6f8495c6a47c": "TopDeck Voidling 2",
@@ -14,102 +22,98 @@ Kill_Tut = {
     "TUT_Creatures_Voidwoken_Hatchling_7dd4f970-d43b-418e-961e-2511d63fffa8": "Rescue Voidwoken 4",
 }
 
-Quest_Tut  = {
+Quest_Tut = {
     "TUT_ShipMurder": "Escaped the Shipped",
     "TUT_ShipInvestigation": "Found the murderer on the ship",
-    "CORE_Chapter1":"Core Chapter 1 Done",
-    
+    "CORE_Chapter1": "Core Chapter 1 Done",
 }
 
 Quest_FTJ = {
-    "FTJ_Escape":"",
-    "FTJ_Escape_Island":"",
-    "FTJ_Escape_Island_SUBA":"",
-    "FTJ_Escape_Island_SUBB":"",
-    "FTJ_Escape_Island_SUBC":"",
-    "FTJ_Voice":"",
-    "FTJ_Godwoken":"",
-    "FTJ_Hunted":"",
-    "FTJ_Seeker":"",
-    "RC_FTJ_OlgoSaheila":"",
-    "RC_FTJ_OlgoSaheila_SUBA":"",
-    "RC_FTJ_OlgoSaheila_SUBB":"",
-    "RC_FTJ_SourceCollar":"",
-    "RC_FTJ_SourceCollar_SUBA":"",
-    "RC_FTJ_SourceCollar_SUBB":"",
-    "RC_FTJ_MurderousGheist":"",
-    "FTJ_SourceHounds":"",
-    "FTJ_Arena":"",
-    "RC_FTJ_SoulJar":"",
-    "FTJ_SaheilaFate":"",
-    "RC_FTJ_SaheilaSignet":"",
-    "FTJ_Teleporter":"",
-    "FTJ_Elodi":"",
-    "FTJ_SW_Illusionist":"",
-    "FTJ_SW_HurtSeekers":"",
-    "FTJ_SW_StuckHaunting":"",
-    "FTJ_SW_Necromancers":"",
-    "FTJ_SW_BraccusArmory":"",
-    "FTJ_SW_CursedRing":"",
-    "FTJ_SW_UndeadTowerMaze":"",
-    "FTJ_SW_CursedPig":"",
-    "FTJ_SW_PurgedDragon":"",
-    "FTJ_SW_CallToArms":"",
-    "FTJ_SW_Shriekers":"",
-    "FTJ_SW_Tyrant":"",
-    "FTJ_Ifan_DarkFaction":"",
-    "FTJ_Ifan_DarkFaction_SUBA":"",
-    "FTJ_Ifan_DarkFaction_SUBB":"",
-    "FTJ_OriginRedPrince":"",
-    "FTJ_OriginRedPrince_HouseOfShadows":"",
-    "FTJ_OriginRedPrince_Princess":"",
-    "FTJ_OriginLohse":"",
-    "FTJ_OriginSebille":"",
-    "FTJ_OriginSebille_SUBA":"",
-    "FTJ_OriginSebille_SUBB":"",
-    "FTJ_OriginSebille_SUBC":"",
-    "FTJ_OriginFane":"",
-    "FTJ_OriginFane_SUBA":"",
-    "FTJ_OriginBeast":"",
-    "FTJ_COM_RedPrince":"",
-    "FTJ_COM_RedPrince_Princess":"",
-    "FTJ_COM_RedPrince_HouseOfShadows":"",
-    "FTJ_COM_Sebille":"",
-    "FTJ_COM_Sebille_SUBA":"",
-    "FTJ_COM_Sebille_SUBB":"",
-    "FTJ_COM_Sebille_SUBC":"",
-    "FTJ_COM_Ifan":"",
-    "FTJ_COM_Ifan_SUBA":"",
-    "FTJ_COM_Ifan_SUBB":"",
-    "FTJ_COM_Lohse":"",
-    "FTJ_COM_Fane":"",
-    "FTJ_COM_Fane_SUBA":"",
-    "FTJ_COM_Beast":"",
-    "CORE_Chapter2":"",
-    "ContaminationArmour":"",
-    "FTJ_SW_BatteredAndCornered":"",
-    "CaptainArmour":"",
-
+    "FTJ_Escape": "",
+    "FTJ_Escape_Island": "",
+    "FTJ_Escape_Island_SUBA": "",
+    "FTJ_Escape_Island_SUBB": "",
+    "FTJ_Escape_Island_SUBC": "",
+    "FTJ_Voice": "",
+    "FTJ_Godwoken": "",
+    "FTJ_Hunted": "",
+    "FTJ_Seeker": "",
+    "RC_FTJ_OlgoSaheila": "",
+    "RC_FTJ_OlgoSaheila_SUBA": "",
+    "RC_FTJ_OlgoSaheila_SUBB": "",
+    "RC_FTJ_SourceCollar": "",
+    "RC_FTJ_SourceCollar_SUBA": "",
+    "RC_FTJ_SourceCollar_SUBB": "",
+    "RC_FTJ_MurderousGheist": "",
+    "FTJ_SourceHounds": "",
+    "FTJ_Arena": "",
+    "RC_FTJ_SoulJar": "",
+    "FTJ_SaheilaFate": "",
+    "RC_FTJ_SaheilaSignet": "",
+    "FTJ_Teleporter": "",
+    "FTJ_Elodi": "",
+    "FTJ_SW_Illusionist": "",
+    "FTJ_SW_HurtSeekers": "",
+    "FTJ_SW_StuckHaunting": "",
+    "FTJ_SW_Necromancers": "",
+    "FTJ_SW_BraccusArmory": "",
+    "FTJ_SW_CursedRing": "",
+    "FTJ_SW_UndeadTowerMaze": "",
+    "FTJ_SW_CursedPig": "",
+    "FTJ_SW_PurgedDragon": "",
+    "FTJ_SW_CallToArms": "",
+    "FTJ_SW_Shriekers": "",
+    "FTJ_SW_Tyrant": "",
+    "FTJ_Ifan_DarkFaction": "",
+    "FTJ_Ifan_DarkFaction_SUBA": "",
+    "FTJ_Ifan_DarkFaction_SUBB": "",
+    "FTJ_OriginRedPrince": "",
+    "FTJ_OriginRedPrince_HouseOfShadows": "",
+    "FTJ_OriginRedPrince_Princess": "",
+    "FTJ_OriginLohse": "",
+    "FTJ_OriginSebille": "",
+    "FTJ_OriginSebille_SUBA": "",
+    "FTJ_OriginSebille_SUBB": "",
+    "FTJ_OriginSebille_SUBC": "",
+    "FTJ_OriginFane": "",
+    "FTJ_OriginFane_SUBA": "",
+    "FTJ_OriginBeast": "",
+    "FTJ_COM_RedPrince": "",
+    "FTJ_COM_RedPrince_Princess": "",
+    "FTJ_COM_RedPrince_HouseOfShadows": "",
+    "FTJ_COM_Sebille": "",
+    "FTJ_COM_Sebille_SUBA": "",
+    "FTJ_COM_Sebille_SUBB": "",
+    "FTJ_COM_Sebille_SUBC": "",
+    "FTJ_COM_Ifan": "",
+    "FTJ_COM_Ifan_SUBA": "",
+    "FTJ_COM_Ifan_SUBB": "",
+    "FTJ_COM_Lohse": "",
+    "FTJ_COM_Fane": "",
+    "FTJ_COM_Fane_SUBA": "",
+    "FTJ_COM_Beast": "",
+    "CORE_Chapter2": "",
+    "ContaminationArmour": "",
+    "FTJ_SW_BatteredAndCornered": "",
+    "CaptainArmour": "",
 }
 
 Kill_FTJBeach = {
-    #Beach Beginning
+    # Beach Beginning
     "S_FTJ_BeachVw_001_08348b3a-bded-4811-92ce-f127aa4310e0": "Fort Joy Beach - VoidWoken 1",
     "S_FTJ_BeachVw_002_1832a661-0e21-421f-acaa-a7e66e813b14": "Fort Joy Beach - VoidWoken 2",
-    
-    #Turtles 
+    # Turtles
     "S_FTJ_SpikedTurtle_01_abd3afae-a6e5-452c-a94a-db57826dd082": "Turtle - (258 363)",
     "S_FTJ_SpikedTurtle_03_fb4618f9-9c61-4640-a32c-e4735783e878": "Ancient Turtle - (271 365)",
     "S_FTJ_SpikedTurtle_04_f37cb16e-027e-4a21-8504-d6cab12d9098": "Turtle - (283 349)",
 }
 
 Kill_FTJ = {
-    #Teleporting Crocs
+    # Teleporting Crocs
     "S_FTJ_TeleporteQuestrCroc_001_bc1a10a1-51b6-42c5-b517-827565f6512b": "Saltwater Crocodile - (113 217)",
     "S_FTJ_TeleporteQuestrCroc_002_6be95689-ab8f-4edf-ba46-77a068594a19": "Saltwater Crocodile - (124 224)",
     "S_FTJ_TeleporteQuestrCroc_003_7cf7d4d4-de1a-4ac7-999a-1f128fac3789": "Saltwater Crocodile - (116 231)",
-    
-    #Harbor
+    # Harbor
     "S_FTJ_HarbourMagister_001_d6a4e8d9-67bc-4961-95ce-c7016357ea64": "Magister Ranger - (324 244)",
     "S_FTJ_HarbourMagister_002_14581b6d-9423-4e2c-8d19-8f1b222ab760": "Magister Inquisitor - (323 246)",
     "S_FTJ_HarbourMagister_003_75ffb9bd-5ddb-4c2c-8ad0-55c00b34be7b": "Magister Ranger - (322 244)",
@@ -120,18 +124,15 @@ Kill_FTJ = {
     "S_FTJ_HarbourSilentMonk_003_61bf204e-ba2e-412f-ac86-e132a3930105": "Silent Monk - (323 224)",
     "S_FTJ_HarbourSilentMonk_004_753d80ce-a515-43e3-8085-8ceacb3ceb4f": "Silent Monk - (321 224)",
     "S_FTJ_HarbourSilentMonk_005_4149080d-9cc5-424d-a8fc-c52222bb463a": "Silent Monk - (331 224)",
-        
-    #Frogs
+    # Frogs
     "S_FTJ_FrogAmbush_Melee_01_747af1e4-d204-4564-9a50-9f1955dd4723": "Charged Amphibian - (528 489)",
     "S_FTJ_FrogAmbush_Ranged_02_ffae5e44-ac8a-4f43-ab14-2e684b60d87b": "Venomous Amphibian - (503 491)",
     "S_FTJ_FrogAmbush_Ranged_03_18d2b17c-a400-4e1d-991f-d1cbb44cfac4": "Venomous Amphibian - (518 504)",
-    
-    #CourtRoom
+    # CourtRoom
     "S_FTJ_CourtRoomGuard_001_c51d581d-9245-431f-a1eb-88adc8149827": "Magister Swordsman - (276 139)",
     "S_FTJ_CourtRoomGuard_002_bb9fd6c4-4231-44ac-a24d-5955dc300147": "Magister Swordsman - (289 139)",
     "S_FTJ_HighPriest_2a09f30c-0a3b-495f-8386-5390a6c4c08d": "High Judge Orivand - (283 129)",
-    
-    #Trap SoulRoom
+    # Trap SoulRoom
     "S_FTJ_SoulJarTrapSkeleton_001_0375d94c-b588-4a1d-bd62-e8dfbd614df4": "Pyromancer Guardian - (372 577)",
     "S_FTJ_SoulJarTrapSkeleton_002_20d96b30-c279-4f94-8815-8114e48f261e": "Blademaster Guardian - (385 566)",
     "S_FTJ_SoulJarTrapSkeleton_003_5ef951b7-a893-4b48-9ee2-7e5d754c6a83": "Cryomancer Guardian - (390 577)",
@@ -142,26 +143,22 @@ Kill_FTJ = {
 }
 
 Kill_PastFTJ = {
-    #Windego
+    # Windego
     "S_GLO_Windego_d783285f-d3be-4cba-8333-db8976cef182": "Windego - (357 192)",
-    
-    #Undead next to Windego
+    # Undead next to Windego
     "S_FTJ_SW_GuardUndead1_416ab3e9-0547-4dd3-b3b8-8b36f75707c1": "Necromancer Tasmyn - (606 606)",
     "S_FTJ_SW_GuardUndead2_6fe11cab-3331-419b-8ce0-13672a97c915": "Necromancer Gwick - (607 610)",
     "S_FTJ_SW_GuardUndead3_8dadcdd9-08dc-4228-a741-35310b42c16e": "Necromancer Rask - (610 606)",
-    
-    #Swamp 1
+    # Swamp 1
     "S_FTJ_SwampBuildup_A_Undead_Assassin_a54a04a3-8507-4a37-a8b6-068fd0ec8146": "Decomposing Assassin - (379 152)",
     "S_FTJ_SwampBuildup_A_Undead_Melee_01_8b70b76c-24f8-4b3c-aae8-3c78c93ab2bb": "Decomposing Swashbuckler - (386 155)",
     "S_FTJ_SwampBuildup_A_Undead_Terra_01_7dee6a3d-ef4f-4281-a311-a65d483e13d1": "Decomposing Terramancer - (389 151)",
-    
-    #Swamp 2
+    # Swamp 2
     "S_FTJ_SwampBuildup_B_Undead_Melee_01_e45ec44b-4033-4994-b6a4-f236dea40561": "Decomposing Swashbuckler - (391 206)",
     "S_FTJ_SwampBuildup_B_Undead_Ranger_01_1195a59b-ba51-4662-afa7-7602b224cfc8": "Decomposing Markswoman - (401 213)",
     "S_FTJ_SwampBuildup_B_Undead_Ranger_02_5468e7d7-8f83-4245-94fc-7303c11612b5": "Decomposing Marksman - (396 216)",
     "S_FTJ_SwampBuildup_B_Undead_Sword_9ee2fb19-5483-42a5-9037-c8147e9695fd": "Decomposing Swashbuckler - (395 210)",
-    
-    #Ambush
+    # Ambush
     "S_FTJ_VoidlingAmbush_000_d61a5845-383b-4759-9fe3-99f519dec4dc": "Viscous Voidling - (461 105)",
     "S_FTJ_VoidlingAmbush_001_eedb56aa-aad1-4de2-8097-3fd7241be1ec": "Viscous Voidling - (443 118)",
     "S_FTJ_VoidlingAmbush_002_a8318c72-e603-4a08-b01d-09232110bccc": "Viscous Voidling - (441 98)",
@@ -175,33 +172,28 @@ Kill_PastFTJ = {
     "S_FTJ_VoidlingAmbush_010_7dfba778-1b94-4cf7-8b26-663dfcb760d3": "Viscous Voidling - (460 114)",
     "S_FTJ_VoidlingAmbush_011_a01a4838-c65a-452e-bde5-dc7b8e3dca27": "Viscous Voidling - (440 102)",
     "S_FTJ_VoidlingAmbush_012_360a68c3-e5f1-4834-aa9e-7dc7497d9301": "Viscous Voidling - (464 106)",
-    
-    #Boss Battle
+    # Boss Battle
     "S_FTJ_SW_VWBoss_Mage_01_5cf41c21-bfed-499e-a6fe-6eda7c24b118": "Decomposing Aeromancer",
-    "S_FTJ_SW_VWBoss_Mage_02 2f619e60-5cfc-4323-a094-e285ea922903": "Decomposing Cryomancer", 
+    "S_FTJ_SW_VWBoss_Mage_02 2f619e60-5cfc-4323-a094-e285ea922903": "Decomposing Cryomancer",
     "S_FTJ_SW_VWBoss_Melee_01 961c827b-43d1-43c8-8553-6d1d4c8e8aed": "Decomposing Swashbuckler",
-    "S_FTJ_SW_VWBoss_Melee_02 8644ff57-7eb3-4ed7-a496-00e977227b53": "Decomposing Swashbuckler", 
+    "S_FTJ_SW_VWBoss_Melee_02 8644ff57-7eb3-4ed7-a496-00e977227b53": "Decomposing Swashbuckler",
     "S_FTJ_SW_VWBoss_Ranger_01 e8ad5533-b8f0-4c55-a261-4192f5cf1e48": "Decomposing Marksman",
     "S_FTJ_SW_VWBoss_VoidWoken 112f8c17-ea77-4658-ac72-239154772fb8": "Voidwoken Deep-dweller",
-    
-    #Salamanders fight next to illusionist cave
+    # Salamanders fight next to illusionist cave
     "S_FTJ_SW_ShelterBackSalamander1 26d2a05f-bd32-408c-adab-c01767271bbf": "Void Salamander",
     "S_FTJ_SW_ShelterBackSalamander2 e3812c55-7530-4d74-b79b-e8f3c91558a4": "Noxious Void Salamander",
     "S_FTJ_SW_ShelterBackSalamander3 62ac9493-260e-40bf-a615-5cdf475208d9": "Void Salamander",
-    
-    #Trompdoy
+    # Trompdoy
     "S_FTJ_SW_IllusionistAtEntrance e01c3723-872a-454d-a59b-d798b21183cd": "Trompdoy - (676 487)",
     "S_FTJ_SW_IllusionistFinal_1a3b44d4-0ba4-4289-b158-a54111b83e1d": "Trompdoy - (700 497)",
-
-    #Chapel?
+    # Chapel?
     "S_FTJ_ChapelMagister_001_068d4518-9b23-4e2c-a160-8d978d1f78ff": "Magister Ranger - (293 197)",
     "S_FTJ_ChapelMagister_002_090d7104-97f7-4603-a114-47dceaf021e5": "Magister Swordsman - (258 164)",
     "S_FTJ_ChapelMagister_003_b5cb12b2-f347-4415-95ac-8d5ac4fc464b": "Magister Ranger - (302 173)",
     "S_FTJ_ChapelMagister_004_8f330be0-a442-408f-850e-c7fd94e74ada": "Magister Ranger - (262 196)",
     "S_FTJ_ChapelMagister_005_d5ea5e99-2406-4bb9-b2df-5fd975f1b63e": "Magister Swordsman - (260 198)",
     "S_FTJ_ChapelMagister_Captain_c4d751d4-20ff-4281-baf4-8ddeb1383e7e": "Magister Captain Trippel - (279 196)",
-    
-    #Temple for rescue
+    # Temple for rescue
     "S_FTJ_CorneringMagister1_324e8aca-3b0b-430e-b8bb-2f6e9edac3fe": "Magister Inquisitor - (471 254)",
     "S_FTJ_CorneringMagister2_f278b94b-78ac-4cd7-9d8a-1c61e673ead3": "Magister Ranger - (469 253)",
     "S_FTJ_CorneringMagister3_34996c94-6294-45e7-9659-f6fce2a95ea5": "Magister Ranger - (464 254)",
@@ -210,8 +202,7 @@ Kill_PastFTJ = {
     "S_FTJ_OutsideMagister2_d3091599-a583-44b8-8ce7-3b7e9d88fdaa": "Magister Ranger - (469 228)",
     "S_FTJ_OutsideMagister3_d584fdbb-1cfa-46d4-add2-5587eafd3e29": "Magister Swordsman - (460 231)",
     "S_FTJ_OutsideMagister4_0a2cf9d4-6631-44c3-aea4-cc5a13f3419b": "Magister Ranger - (460 229)",
-    
-    #Witch Battle
+    # Witch Battle
     "S_FTJ_SW_Witch_4014aee0-56f1-47e0-a8eb-89c4b5a1da83": "Radeka the Witch - (691 602)",
     "S_FTJ_SW_Witch_Beetle_01_e973d472-f53a-4dee-be60-cd335f3dad7d": "Carrion Beetle - (697 620)",
     "S_FTJ_SW_Witch_Beetle_02_ea698437-fdcc-470f-8f9e-e7640c438690": "Carrion Beetle - (690 597)",
@@ -220,8 +211,7 @@ Kill_PastFTJ = {
     "S_FTJ_SW_Witch_BloodZombie_03_5549433c-5dec-4701-9733-8fb06009dfff": "Bloody Corpse - (694 614)",
     "S_FTJ_SW_Witch_BloodZombie_04_b714cbca-6c44-4d4d-918c-50269f773584": "Bloody Corpse - (689 600)",
     "S_FTJ_SW_Witch_Zombie_daa5de44-d3b9-47c3-aed5-9969ca29ce61": "Undead Medat - (693 602)",
-    
-    #Last Battle
+    # Last Battle
     "S_FTJ_SW_FinalBattleMagister_000_c283e820-0166-4668-8ad4-842085d58de9": "Magister Metamorph - (552 301)",
     "S_FTJ_SW_FinalBattleMagister_001_165f1353-a916-4291-940a-293efbe8f187": "Magister Assassin - (570 299)",
     "S_FTJ_SW_FinalBattleMagister_002_0b7282f6-a131-4441-a113-8f3ea62fa9e3": "Magister Markswoman - (567 309)",
@@ -230,3 +220,86 @@ Kill_PastFTJ = {
     "S_FTJ_SW_FinalBattle_Voidwoken_7dcf3cc2-d015-4aff-9949-71fc539fcc73": "Voidwoken Drillworm - (594 408)",
 }
 
+
+LOCATION_ID_BASE = 0xE0000
+
+KILL_GROUPS = [Kill_Tut, Kill_FTJBeach, Kill_FTJ, Kill_PastFTJ]
+QUEST_GROUPS = [Quest_Tut, Quest_FTJ]
+
+
+def _build_location_entries():
+    entries: list[tuple[str, str]] = []
+    for group in KILL_GROUPS:
+        for key, display in group.items():
+            mod_name = f"Kill-{key}"
+            ap_name = f"Kill: {display or key}"
+            entries.append((mod_name, ap_name))
+    for group in QUEST_GROUPS:
+        for key, display in group.items():
+            mod_name = f"Quest-{key}"
+            ap_name = f"Quest: {display or key}"
+            entries.append((mod_name, ap_name))
+    return entries
+
+
+_ALL_LOCATION_ENTRIES = _build_location_entries()
+MOD_LOCATION_NAME_TO_AP_NAME = {mod: ap for mod, ap in _ALL_LOCATION_ENTRIES}
+LOCATION_NAME_TO_ID = {ap: LOCATION_ID_BASE + index for index, (_, ap) in enumerate(_ALL_LOCATION_ENTRIES)}
+MOD_LOCATION_NAME_TO_ID = {mod: LOCATION_NAME_TO_ID[ap] for mod, ap in _ALL_LOCATION_ENTRIES}
+
+KILL_LOCATION_NAMES = [ap for mod, ap in _ALL_LOCATION_ENTRIES if mod.startswith("Kill-")]
+QUEST_LOCATION_NAMES = [ap for mod, ap in _ALL_LOCATION_ENTRIES if mod.startswith("Quest-")]
+
+
+class DOS2Location(Location):
+    game = "Divinity: Original Sin 2"
+
+
+def get_location_names_with_ids(location_names: list[str]) -> dict[str, int | None]:
+    return {location_name: LOCATION_NAME_TO_ID[location_name] for location_name in location_names}
+
+
+def _is_option_enabled(options, attribute: str) -> bool:
+    if options is None:
+        return True
+    value = getattr(options, attribute, 1)
+    try:
+        return int(value) == 1
+    except Exception:
+        return True
+
+
+def get_location_names(options=None) -> list[str]:
+    names: list[str] = []
+    if _is_option_enabled(options, "kill_sanity"):
+        names.extend(KILL_LOCATION_NAMES)
+    if _is_option_enabled(options, "quest_sanity"):
+        names.extend(QUEST_LOCATION_NAMES)
+    return names
+
+
+def resolve_location_id(location_name: str) -> int | None:
+    if location_name in LOCATION_NAME_TO_ID:
+        return LOCATION_NAME_TO_ID[location_name]
+    if location_name in MOD_LOCATION_NAME_TO_ID:
+        return MOD_LOCATION_NAME_TO_ID[location_name]
+    return None
+
+
+def create_all_locations(world: "DOS2") -> None:
+    location_names = get_location_names(world.options)
+    if not location_names:
+        return
+
+    try:
+        region = world.get_region(world.origin_region_name)
+    except Exception:
+        if world.regions:
+            region = world.regions[0]
+        else:
+            from BaseClasses import Region
+
+            region = Region(world.origin_region_name, world.player, world.multiworld)
+            world.regions.append(region)
+
+    region.add_locations(get_location_names_with_ids(location_names), DOS2Location)

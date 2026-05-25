@@ -1,96 +1,97 @@
+from __future__ import annotations
 
-class DOS2ItemMetaData():
-    def __init__(self, name : str, id : str):
+from typing import TYPE_CHECKING
+
+from BaseClasses import Item, ItemClassification
+
+if TYPE_CHECKING:
+    from .world import DOS2
+
+
+class DOS2ItemMetaData:
+    def __init__(self, name: str, id: str):
         self.name = name
         self.id = id
-        
+
+
 class DOS2TreasureMetadata(DOS2ItemMetaData):
-    def __init__(self,name : str, id : str, levelsRequired : int):
+    def __init__(self, name: str, id: str, levelsRequired: int):
         super().__init__(name, id)
         self.levelsRequired = levelsRequired
 
+
 class DOS2SkillMetaData(DOS2TreasureMetadata):
-    def __init__(self, name : str, id : str, levelsRequired : int, sourceCost : int):
-        super().__init__(levelsRequired, name, id)
+    def __init__(self, name: str, id: str, levelsRequired: int, sourceCost: int):
+        super().__init__(name, id, levelsRequired)
         self.sourceCost = sourceCost
 
-Skilloffset = 0xff
+
+Skilloffset = 0xFF
 TreasureOffset = 0x00
 
 SKILLS = {
     "Cone_": [
-        ("RadialBlowback","?",0,0 ),
-        ("Flamebreath", "Dragon's Blaze", 0 , 0),
-        ("GroundSmash","?",0,0),
+        ("RadialBlowback", "?", 0, 0),
+        ("Flamebreath", "Dragon's Blaze", 0, 0),
+        ("GroundSmash", "?", 0, 0),
         ("SteamLance", "Steam Lance", 3, 2),
-        ("CorrosiveSpray", "Corrosive Spray",4 ,0),
-        ("Shatter", "?",0,0),
-        ("SilencingStare", "Silencing Stare", 0, 1)
+        ("CorrosiveSpray", "Corrosive Spray", 4, 0),
+        ("Shatter", "?", 0, 0),
+        ("SilencingStare", "Silencing Stare", 0, 1),
     ],
-    "Dome_": [
-        ("CircleOfProtection", "Circle Of Protection", 0,1)
-    ],
+    "Dome_": [("CircleOfProtection", "Circle Of Protection", 0, 1)],
     "Jump_": [
         ("CloakAndDagger", "Cloak And Dagger", 2, 0),
         ("TacticalRetreat", "Tactical Retreat", 2, 0),
         ("PhoenixDive", "Phoenix Dive", 2, 0),
         ("BonePileBurrow", "?", 0, 0),
     ],
-    "MultiStrike_": [
-        ("BlinkStrike", "?",0,0),
-        ("Vault", "?", 0, 0)
-    ],
+    "MultiStrike_": [("BlinkStrike", "?", 0, 0), ("Vault", "?", 0, 0)],
     "Projectile_": [
         ("FlareStart", "?", 0, 0),
-        ("InfectiousFlame", "?", 0,0),
-        ("ChainHeal", "?",0,0),
+        ("InfectiousFlame", "?", 0, 0),
+        ("ChainHeal", "?", 0, 0),
         ("IceFan", "Ice Fan", 2, 0),
         ("DimensionalBolt", "Dimensional Bolt", 0, 0),
         ("AcidSpores", "Acid Sporce", 3, 2),
         ("ChainLightning", "Chain Lightning", 3, 1),
         ("ThrowDust", "Throw Dust", 2, 0),
         ("DustBlast", "Dust Blast", 4, 1),
-        ("SpinWeb", "?",0,0),
+        ("SpinWeb", "?", 0, 0),
         ("Multishot", "Barrage", 2, 0),
         ("SkyShot", "Sky Shot", 2, 0),
         ("ArrowSpray", "Arrow Spray", 3, 1),
         ("Fireball", "Fireball", 2, 0),
         ("FlamingDaggers", "Searing Daggers", 1, 0),
-        ("PyroclasticRock", "?",0,0),
+        ("PyroclasticRock", "?", 0, 0),
         ("PyroclasticEruption", "PyroClastic Eruption", 5, 3),
         ("LightningBolt", "?", 0, 0),
         ("Superconductor", "Super Conductor", 3, 0),
         ("PiercingShot", "?", 0, 0),
-        ("Snipe", "?",0,0),
-        ("Ricochet", "Ricochet", 1,0),
+        ("Snipe", "?", 0, 0),
+        ("Ricochet", "Ricochet", 1, 0),
         ("BallisticShot", "BallisticShot", 2, 0),
         ("ThrowingKnife", "Throwing Knife", 1, 0),
         ("FanOfKnives", "Fan Of Knives", 3, 1),
         ("Chloroform", "Chloroform", 1, 0),
-        ("Mark", "?", 0 , 0),
+        ("Mark", "?", 0, 0),
         ("BouncingShield", "BouncingShield", 1, 0),
-        ("LaunchBomber", "?",0,0),
-        ("PoisonDartStart", "?", 0, 0 ),
+        ("LaunchBomber", "?", 0, 0),
+        ("PoisonDartStart", "?", 0, 0),
         ("PinDown", "Pin Down", 1, 0),
-        ("LivingBomb_Explosion", "?", 0, 0)
+        ("LivingBomb_Explosion", "?", 0, 0),
     ],
     "ProjectileStrike_": [
-        ("HailStrike", "Hail Strike", 1,0),
-        ("RainOfArrows", "?", 0,0),
+        ("HailStrike", "Hail Strike", 1, 0),
+        ("RainOfArrows", "?", 0, 0),
         ("MeteorShower", "Meteor Shower", 5, 3),
-        ("HailAttack", "?", 0,0),
+        ("HailAttack", "?", 0, 0),
         ("DazingBolt", "Dazing Bolt", 2, 0),
     ],
-    "Quake_": [
-        ("Earthquake", "EarthQuake", 2, 0)
-    ],
-    "Rain_": [
-        ("Water", "Rain", 1,0),
-        ("Blood", "Raining Blood", 2, 0),
-        ("Oil", "?", 0, 0)
-    ],
+    "Quake_": [("Earthquake", "EarthQuake", 2, 0)],
+    "Rain_": [("Water", "Rain", 1, 0), ("Blood", "Raining Blood", 2, 0), ("Oil", "?", 0, 0)],
     "Rush_": [
-        ("BatteringRam","Battering Ram", 1, 0),
+        ("BatteringRam", "Battering Ram", 1, 0),
     ],
     "Shout_": [
         ("BanishSelf", "?", 0, 0),
@@ -98,31 +99,31 @@ SKILLS = {
         ("GlobalCooling", "Global Cooling", 1, 0),
         ("IceBreaker", "Ice Breaker", 3, 0),
         ("Contamination", "Contamination", 1, 0),
-        ("FavourableWind","Favourable Wind", 1, 0),
+        ("FavourableWind", "Favourable Wind", 1, 0),
         ("ElectricFence", "?", 0, 0),
-        ("BlindingRadiance", "Blinding Radiance", 1,0),
+        ("BlindingRadiance", "Blinding Radiance", 1, 0),
         ("FleshSacrifice", "Flesh Sacrifice", 0, 0),
-        ("Whirlwind", "Whirlwind", 2 ,0),
-        ("Adrenaline", "Adrenalin", 1 ,0),
+        ("Whirlwind", "Whirlwind", 2, 0),
+        ("Adrenaline", "Adrenalin", 1, 0),
         ("PlayDead", "Play Dead", 0, 0),
         ("Ignition", "Ignition", 1, 0),
         ("Taunt", "Taunt", 1, 0),
-        ("EtherealSoles", "?", 0, 0 ),
-        ("ChameleonSkin", "Chameleon Cloak", 1 ,0),
-        ("ChainPull", "?", 0 ,0),
+        ("EtherealSoles", "?", 0, 0),
+        ("ChameleonSkin", "Chameleon Cloak", 1, 0),
+        ("ChainPull", "?", 0, 0),
         ("InspireStart", "Inspire?", 0, 0),
-        ("NullResistanceStart", "Flay Skin?",1,0),
-        ("CauseFear","?",0,0),
-        ("Deafen","?",0,0),
-        ("RecoverArmour", "Mage Armor?", 1,0),
-        ("BarbedCoat", "?", 0,0),
-        ("DeflectiveBarrier", "Deflective Barrier", 2,0),
+        ("NullResistanceStart", "Flay Skin?", 1, 0),
+        ("CauseFear", "?", 0, 0),
+        ("Deafen", "?", 0, 0),
+        ("RecoverArmour", "Mage Armor?", 1, 0),
+        ("BarbedCoat", "?", 0, 0),
+        ("DeflectiveBarrier", "Deflective Barrier", 2, 0),
         ("GuardianAngel", "Guardian Angel", 3, 0),
         ("ThickOfTheFight", "Thick Of the Fight", 3, 1),
         ("InnerDemon", "Summon Inner Demon", 0, 1),
         ("Supernova", "SuperNova", 2, 0),
         ("FlamingTongues", "Flaming Tongues", 2, 0),
-        ("HealingTears","Healing Tears", 2, 0),
+        ("HealingTears", "Healing Tears", 2, 0),
         ("FrostAura", "?", 0, 0),
         ("FireBrand", "FireBrand", 3, 0),
         ("VacuumAura", "Vacumm Auro", 2, 0),
@@ -157,23 +158,23 @@ SKILLS = {
         ("MassBreathingBubbles", "Mass Breathing Bubbles", 4, 1),
         ("VenomCoating", "Venom Coating", 2, 0),
         ("VenomousAura", "Venomous Aura", 4, 1),
-        ("ReactiveArmor", "Reactive Armor", 2, 0)
+        ("ReactiveArmor", "Reactive Armor", 2, 0),
     ],
     "Storm_": [
         ("Lightning", "ThunderStorm", 5, 3),
         ("Ethereal", "Ethereal Storm", 5, 3),
-        ("Blood", "Blodd Storm", 5, 3)
+        ("Blood", "Blodd Storm", 5, 3),
     ],
     "Summon_": [
         ("FireSlug", "Summon FireSlug", 3, 1),
         ("ArtilleryPlant", "Summon Artillery Plant", 3, 1),
-        ("Cat", "Summon Cat Familiar", 0 ,0),
+        ("Cat", "Summon Cat Familiar", 0, 0),
         ("Condor", "Summon Condor", 0, 0),
         ("TotemFromSurface", "Elemental Totem?", 1, 0),
         ("BonePile", "Summon Bone Pile", 0, 0),
         ("BloodHeart", "Summon BloodHeart?", 0, 0),
         ("SoulWolf", "Summon Ifan's Soul Wolf", 0, 1),
-        ("PlanarGateway", "Planar Gateway", 3, 2)
+        ("PlanarGateway", "Planar Gateway", 3, 2),
     ],
     "Target_": [
         ("SourceVampirism", "Source Vampirism", 0, 0),
@@ -181,7 +182,7 @@ SKILLS = {
         ("ConsumeCorpse", "?", 0, 0),
         ("Bless", "Bless", 0, 0),
         ("Curse", "Curse", 0, 0),
-        ("TentacleLash", "Tentacle Lash", 1,0 ),
+        ("TentacleLash", "Tentacle Lash", 1, 0),
         ("FireWhip", "Fire Whip", 2, 0),
         ("BurnMyEyes", "Peace of mind?", 1, 0),
         ("Haste", "Haste", 1, 0),
@@ -236,7 +237,10 @@ SKILLS = {
         ("ElementalArrowheads", "Elemental ArrowHeads", 1, 0),
         ("BlessedSmokeCloud", "Blessed SmokeCloud", 4, 2),
         ("BlackShroud", "Black Shroud", 3, 1),
-        ("Windwalker", "Wind Walker", ),
+        (
+            "Windwalker",
+            "Wind Walker",
+        ),
         ("Fatality", "Fatality", 1, 0),
         ("DaggersDrawn", "Daggers Drawn", 3, 2),
         ("TargetedOilSurface", "?", 0, 0),
@@ -248,7 +252,7 @@ SKILLS = {
         ("Infect", "Infect", 2, 0),
         ("ChickenTouch", "Chicken Claw", 1, 0),
         ("FlamingCrescendo", "Flaming Crescendo", 3, 0),
-        ("LivingBomb", "LivingBomb?", 0 ,0),
+        ("LivingBomb", "LivingBomb?", 0, 0),
         ("ArcaneStitch", "Arcane Stitch", 3, 1),
         ("WormTremor", "Worm Tremor", 2, 0),
         ("CorpseExplosion", "Corpse Explosion", 2, 0),
@@ -258,29 +262,83 @@ SKILLS = {
         ("Supercharge", "SuperCharger", 2, 0),
         ("Terrify", "Terrify?", 0, 0),
         ("Apportation", "Apportation?", 0, 0),
-        ("BloatedCorpse", "Raise Bloated Corpse?", 1, 0 )
+        ("BloatedCorpse", "Raise Bloated Corpse?", 1, 0),
     ],
     "Teleportation_": [
         ("FreeFall", "?", 0, 0),
         ("Netherswap", "Nether Swap", 2, 0),
         ("ForcePush", "?", 0, 0),
         ("SwapGround", "Terrain Transmutation", 2, 0),
-        ("LastRites", "Last Rites", 3, 0)
+        ("LastRites", "Last Rites", 3, 0),
     ],
-    "Tornado_": [
-        ("Air", "Tornado", 3, 0)
-    ],
-    "Wall_": [
-        ("LivingWall", "Living Wall", 3, 0)
-    ],
+    "Tornado_": [("Air", "Tornado", 3, 0)],
+    "Wall_": [("LivingWall", "Living Wall", 3, 0)],
     "Zone_": [
         ("LaserRay", "Laser Ray", 2, 0),
-    ]       
+    ],
 }
 
-def GenerateSkills():
-    for skillCategory in SKILLS:
-        for skill in SKILLS[skillCategory]:
-            if skill[4] <= 1:
-                #Add the skill in a list for the items
-                pass
+
+ITEM_ID_BASE = 0xD0000
+
+
+def _build_skill_items():
+    item_names: list[str] = []
+    descriptions: dict[str, str] = {}
+    for category, skills in SKILLS.items():
+        for skill in skills:
+            internal_name = skill[0]
+            display_name = skill[1] if len(skill) > 1 and isinstance(skill[1], str) else ""
+            item_name = f"Skill-{category}{internal_name}"
+            item_names.append(item_name)
+            if display_name and display_name != "?":
+                descriptions[item_name] = display_name
+            else:
+                descriptions[item_name] = item_name
+    return item_names, descriptions
+
+
+_SKILL_ITEM_NAMES, ITEM_NAME_TO_DESCRIPTION = _build_skill_items()
+
+# Every item must have a unique integer ID associated with it.
+ITEM_NAME_TO_ID = {name: ITEM_ID_BASE + index for index, name in enumerate(_SKILL_ITEM_NAMES)}
+ID_TO_ITEM_NAME = {id_: name for name, id_ in ITEM_NAME_TO_ID.items()}
+DEFAULT_ITEM_CLASSIFICATIONS = {name: ItemClassification.useful for name in ITEM_NAME_TO_ID}
+
+
+class DOS2Item(Item):
+    game = "Divinity: Original Sin 2"
+
+
+def get_item_name_to_id():
+    return ITEM_NAME_TO_ID
+
+
+def get_all_item_names(options=None) -> list[str]:
+    # For now, all skills are always in the pool. You can add filtering by options if needed.
+    return list(ITEM_NAME_TO_ID.keys())
+
+
+def get_random_filler_item_name(world: "DOS2") -> str:
+    return world.random.choice(get_all_item_names(world.options))
+
+
+def create_item_with_correct_classification(world: "DOS2", name: str) -> DOS2Item:
+    classification = DEFAULT_ITEM_CLASSIFICATIONS[name]
+    return DOS2Item(name, classification, ITEM_NAME_TO_ID[name], world.player)
+
+
+def create_all_items(world: "DOS2") -> None:
+    item_names = get_all_item_names(world.options)
+    itempool = [create_item_with_correct_classification(world, name) for name in item_names]
+
+    # Fill remaining locations with repeatable filler items
+    number_of_unfilled_locations = len(world.multiworld.get_unfilled_locations(world.player))
+    while len(itempool) < number_of_unfilled_locations:
+        itempool.append(create_item_with_correct_classification(world, get_random_filler_item_name(world)))
+
+    world.multiworld.itempool += itempool
+
+
+# Legacy stub
+GenerateSkills = get_all_item_names
