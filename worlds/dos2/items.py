@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from typing import TYPE_CHECKING
-
+from .options import DOS2Options
 from BaseClasses import Item, ItemClassification
 
 if TYPE_CHECKING:
@@ -163,7 +163,7 @@ SKILLS = {
     "Storm_": [
         ("Lightning", "ThunderStorm", 5, 3),
         ("Ethereal", "Ethereal Storm", 5, 3),
-        ("Blood", "Blodd Storm", 5, 3),
+        ("Blood", "Blood Storm", 5, 3),
     ],
     "Summon_": [
         ("FireSlug", "Summon FireSlug", 3, 1),
@@ -275,7 +275,6 @@ SKILLS = {
     ],
 }
 
-
 ITEM_ID_BASE = 0xD0000
 
 
@@ -300,8 +299,6 @@ _SKILL_ITEM_NAMES, ITEM_NAME_TO_DESCRIPTION = _build_skill_items()
 # Every item must have a unique integer ID associated with it.
 ITEM_NAME_TO_ID = {name: index for index, name in enumerate(_SKILL_ITEM_NAMES, SKILLOFFSET)}
 ID_TO_ITEM_NAME = {id_: name for name, id_ in ITEM_NAME_TO_ID.items()}
-DEFAULT_ITEM_CLASSIFICATIONS = {name: ItemClassification.useful for name in ITEM_NAME_TO_ID}
-
 
 class DOS2Item(Item):
     game = "Divinity: Original Sin 2"
@@ -311,7 +308,7 @@ def get_item_name_to_id():
     return ITEM_NAME_TO_ID
 
 
-def get_all_item_names(options=None) -> list[str]:
+def get_all_item_names(options=DOS2Options) -> list[str]:
     # For now, all skills are always in the pool. You can add filtering by options if needed.
     return list(ITEM_NAME_TO_ID.keys())
 
@@ -321,7 +318,11 @@ def get_random_filler_item_name(world: "DOS2") -> str:
 
 
 def create_item_with_correct_classification(world: "DOS2", name: str) -> DOS2Item:
-    classification = DEFAULT_ITEM_CLASSIFICATIONS[name]
+    classification = ItemClassification.filler
+    if name.startswith("Skill") or name.startswith("Treasure"):
+        classification = ItemClassification.useful
+    elif name.startswith("LevelUp"):
+        classification = ItemClassification.progression
     return DOS2Item(name, classification, ITEM_NAME_TO_ID[name], world.player)
 
 

@@ -18,7 +18,7 @@ Quest_Tut = {
     "TUT_ShipInvestigation": "Found the murderer on the ship",
     "CORE_Chapter1": "Core Chapter 1 Done",
 }
-Quest_Tut_id = {location: number for (number, location) in enumerate(Quest_Tut, 0x0)}
+Quest_Tut_id = {f"Quest-{location}": number for (number, location) in enumerate(Quest_Tut, 0x0)}
 
 Kill_Tut = {
 "S_TUT_LowerDeck_PrayingMagister_096479c9-a702-4161-a5ba-fb2b3312bf76": "Magister Viktar - (57; -248)",
@@ -56,7 +56,7 @@ Kill_Tut = {
 "S_TUT_LowerDeck_LohseSongGirl1_a681c125-8493-4046-ab1f-6c2201336a22": "Trice - (41; -236)",
 
 }
-Kill_Tut_id = {location: number for (number, location) in enumerate(Kill_Tut, 0x40)}
+Kill_Tut_id = {f"Kill-{location}": number for (number, location) in enumerate(Kill_Tut, 0x40)}
 
 Quest_FTJ = {
     "FTJ_Escape": "",
@@ -127,7 +127,7 @@ Quest_FTJ = {
     "FTJ_SW_BatteredAndCornered": "",
     "CaptainArmour": "",
 }
-Quest_FTJ_id = {location: number for (number, location) in enumerate(Quest_FTJ, 0x80)}
+Quest_FTJ_id = {f"Quest-{location}": number for (number, location) in enumerate(Quest_FTJ, 0x80)}
 
 Kill_FTJ = {
     
@@ -247,7 +247,7 @@ Kill_FTJ = {
     "S_FTJ_SW_FinalBattleMagister_Gheist_06082187-829f-43e1-b3bb-f3242a70904d": "Gheist - (564 306)",
     "S_FTJ_SW_FinalBattle_Voidwoken_7dcf3cc2-d015-4aff-9949-71fc539fcc73": "Voidwoken Drillworm - (594 408)",
 }
-Kill_FTJ_id = {location: number for (number, location) in enumerate(Kill_FTJ, 0xD0)}
+Kill_FTJ_id = {f"Kill-{location}": number for (number, location) in enumerate(Kill_FTJ, 0xD0)}
 
 location_ids = Quest_FTJ_id | Kill_Tut_id | Quest_FTJ_id | Kill_FTJ_id
 ID_LOCATION = {v: k for k, v in location_ids.items()}
@@ -255,7 +255,9 @@ ID_LOCATION = {v: k for k, v in location_ids.items()}
 def create_locations(world : "DOS2") -> None:
     tutorial = world.get_region("Tutorial")
     fort_joy = world.get_region("Fort Joy")
-    tutorial.add_locations(Quest_Tut, DOS2Location)
-    tutorial.add_locations(Kill_Tut, DOS2Location)
-    fort_joy.add_locations(Quest_FTJ_id, DOS2Location)
-    fort_joy.add_locations(Kill_FTJ_id, DOS2Location)
+    if world.options.kill_sanity:
+        tutorial.add_locations(Kill_Tut, DOS2Location)
+        fort_joy.add_locations(Kill_FTJ_id, DOS2Location)
+    if world.options.quest_sanity:
+        tutorial.add_locations(Quest_Tut, DOS2Location)
+        fort_joy.add_locations(Quest_FTJ_id, DOS2Location)
