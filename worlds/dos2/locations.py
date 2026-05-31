@@ -256,8 +256,8 @@ def create_locations(world : "DOS2") -> None:
     tutorial = world.get_region("Tutorial")
     fort_joy = world.get_region("Fort Joy")
     if world.options.kill_sanity:
-        tutorial.add_locations(Kill_Tut, DOS2Location)
+        tutorial.add_locations(Kill_Tut_id, DOS2Location)
         fort_joy.add_locations(Kill_FTJ_id, DOS2Location)
     if world.options.quest_sanity:
-        tutorial.add_locations(Quest_Tut, DOS2Location)
+        tutorial.add_locations(Quest_Tut_id, DOS2Location)
         fort_joy.add_locations(Quest_FTJ_id, DOS2Location)
