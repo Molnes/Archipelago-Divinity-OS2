@@ -26,9 +26,8 @@ class DOS2SkillMetaData(DOS2TreasureMetadata):
         self.sourceCost = sourceCost
 
 
-SKILLOFFSET = 0xFF
-TreasureOffset = 0x00
 
+SKILLOFFSET = 0xFF
 SKILLS = {
     "Cone_": [
         ("RadialBlowback", "?", 0, 0),
@@ -275,26 +274,20 @@ SKILLS = {
     ],
 }
 
-ITEM_ID_BASE = 0xD0000
-
-
 def _build_skill_items():
     item_names: list[str] = []
-    descriptions: dict[str, str] = {}
+    internal_name: dict[str, str] = {}
     for category, skills in SKILLS.items():
         for skill in skills:
-            internal_name = skill[0]
-            display_name = skill[1] if len(skill) > 1 and isinstance(skill[1], str) else ""
-            item_name = f"Skill-{category}{internal_name}"
-            item_names.append(item_name)
+            internal_name = skill[1]
+            display_name = skill[0] if len(skill) > 1 and isinstance(skill[1], str) else ""
             if display_name and display_name != "?":
-                descriptions[item_name] = display_name
-            else:
-                descriptions[item_name] = item_name
-    return item_names, descriptions
+                item_name = f"Skill-{display_name}"
+                item_names.append(item_name)
+                internal_name[item_name] = f"Skill-{category}{internal_name}"
+    return item_names, internal_name
 
-
-_SKILL_ITEM_NAMES, ITEM_NAME_TO_DESCRIPTION = _build_skill_items()
+_SKILL_ITEM_NAMES, ITEM_NAME_TO_INTERNAL = _build_skill_items()
 
 # Every item must have a unique integer ID associated with it.
 ITEM_NAME_TO_ID = {name: index for index, name in enumerate(_SKILL_ITEM_NAMES, SKILLOFFSET)}
@@ -307,6 +300,9 @@ class DOS2Item(Item):
 def get_item_name_to_id():
     return ITEM_NAME_TO_ID
 
+def translate_from_display(name : str):
+    if name.startswith("Skill-"):
+        indexing = name.removeprefix("Skill-")
 
 def get_all_item_names(options=DOS2Options) -> list[str]:
     # For now, all skills are always in the pool. You can add filtering by options if needed.
@@ -321,10 +317,9 @@ def create_item_with_correct_classification(world: "DOS2", name: str) -> DOS2Ite
     classification = ItemClassification.filler
     if name.startswith("Skill") or name.startswith("Treasure"):
         classification = ItemClassification.useful
-    elif name.startswith("LevelUp"):
+    elif name.endswith("LevelUp"):
         classification = ItemClassification.progression
     return DOS2Item(name, classification, ITEM_NAME_TO_ID[name], world.player)
-
 
 def create_all_items(world: "DOS2") -> None:
     item_names = get_all_item_names(world.options)

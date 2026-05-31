@@ -18,7 +18,7 @@ Quest_Tut = {
     "TUT_ShipInvestigation": "Found the murderer on the ship",
     "CORE_Chapter1": "Core Chapter 1 Done",
 }
-Quest_Tut_id = {f"Quest-{location}": number for (number, location) in enumerate(Quest_Tut, 0x0)}
+Quest_Tut_id = {f"TUT - {Quest_Tut[location]}": number for (number, location) in enumerate(Quest_Tut, 0x0)}
 
 Kill_Tut = {
 "S_TUT_LowerDeck_PrayingMagister_096479c9-a702-4161-a5ba-fb2b3312bf76": "Magister Viktar - (57; -248)",
@@ -56,24 +56,20 @@ Kill_Tut = {
 "S_TUT_LowerDeck_LohseSongGirl1_a681c125-8493-4046-ab1f-6c2201336a22": "Trice - (41; -236)",
 
 }
-Kill_Tut_id = {f"Kill-{location}": number for (number, location) in enumerate(Kill_Tut, 0x40)}
+Kill_Tut_id = {f"Killed {Kill_Tut[location]} at the boat": number for (number, location) in enumerate(Kill_Tut, 0x40)}
 
 Quest_FTJ = {
-    "FTJ_Escape": "",
-    "FTJ_Escape_Island": "",
+    "FTJ_Escape": "Escaped Fort Joy",
+    "FTJ_Escape_Island": "Escaped Fort Joy Island",
     "FTJ_Escape_Island_SUBA": "",
     "FTJ_Escape_Island_SUBB": "",
     "FTJ_Escape_Island_SUBC": "",
-    "FTJ_Voice": "",
-    "FTJ_Godwoken": "",
+    "FTJ_Voice": "Found out where the voices came from",
+    "FTJ_Godwoken": "Talked to god",
     "FTJ_Hunted": "",
     "FTJ_Seeker": "",
     "RC_FTJ_OlgoSaheila": "",
-    "RC_FTJ_OlgoSaheila_SUBA": "",
-    "RC_FTJ_OlgoSaheila_SUBB": "",
-    "RC_FTJ_SourceCollar": "",
-    "RC_FTJ_SourceCollar_SUBA": "",
-    "RC_FTJ_SourceCollar_SUBB": "",
+    #"RC_FTJ_SourceCollar": "Got rid of their source collar",
     "RC_FTJ_MurderousGheist": "",
     "FTJ_SourceHounds": "",
     "FTJ_Arena": "",
@@ -86,19 +82,19 @@ Quest_FTJ = {
     "FTJ_SW_HurtSeekers": "",
     "FTJ_SW_StuckHaunting": "",
     "FTJ_SW_Necromancers": "",
-    "FTJ_SW_BraccusArmory": "",
-    "FTJ_SW_CursedRing": "",
-    "FTJ_SW_UndeadTowerMaze": "",
-    "FTJ_SW_CursedPig": "",
-    "FTJ_SW_PurgedDragon": "",
+    "FTJ_SW_BraccusArmory": "Found braccu's armory",
+    "FTJ_SW_CursedRing": "Got a cursed ring",
+    "FTJ_SW_UndeadTowerMaze": "Went trough the undead tower maze",
+    "FTJ_SW_CursedPig": "Saved (or killed) the pigs",
+    "FTJ_SW_PurgedDragon": "Saved (or killed) the dragon",
     "FTJ_SW_CallToArms": "",
-    "FTJ_SW_Shriekers": "",
+    "FTJ_SW_Shriekers": "Dealt with the shriekers",
     "FTJ_SW_Tyrant": "",
     "FTJ_Ifan_DarkFaction": "",
     "FTJ_Ifan_DarkFaction_SUBA": "",
     "FTJ_Ifan_DarkFaction_SUBB": "",
     "FTJ_OriginRedPrince": "",
-    "FTJ_OriginRedPrince_HouseOfShadows": "",
+    "FTJ_OriginRedPrince_HouseOfShadows": "Found a assasinasion cult",
     "FTJ_OriginRedPrince_Princess": "",
     "FTJ_OriginLohse": "",
     "FTJ_OriginSebille": "",
@@ -122,12 +118,12 @@ Quest_FTJ = {
     "FTJ_COM_Fane": "",
     "FTJ_COM_Fane_SUBA": "",
     "FTJ_COM_Beast": "",
-    "CORE_Chapter2": "",
-    "ContaminationArmour": "",
+    "CORE_Chapter2": "Finished chapter 2",
+    "ContaminationArmour": "Got the contamination Armour",
     "FTJ_SW_BatteredAndCornered": "",
-    "CaptainArmour": "",
+    "CaptainArmour": "Found the captain armour",
 }
-Quest_FTJ_id = {f"Quest-{location}": number for (number, location) in enumerate(Quest_FTJ, 0x80)}
+Quest_FTJ_id = {f"FTJ - {Quest_FTJ[location]}": number for (number, location) in enumerate(Quest_FTJ, 0x80)}
 
 Kill_FTJ = {
     
@@ -247,9 +243,10 @@ Kill_FTJ = {
     "S_FTJ_SW_FinalBattleMagister_Gheist_06082187-829f-43e1-b3bb-f3242a70904d": "Gheist - (564 306)",
     "S_FTJ_SW_FinalBattle_Voidwoken_7dcf3cc2-d015-4aff-9949-71fc539fcc73": "Voidwoken Drillworm - (594 408)",
 }
-Kill_FTJ_id = {f"Kill-{location}": number for (number, location) in enumerate(Kill_FTJ, 0xD0)}
+Kill_FTJ_id = {f"Killed {Kill_FTJ[location]} at FTJ": number for (number, location) in enumerate(Kill_FTJ, 0xD0)}
 
 location_ids = Quest_Tut_id | Kill_Tut_id | Quest_FTJ_id | Kill_FTJ_id
+INTERNAL_TO_DISPLAY = Quest_Tut | Quest_FTJ | Kill_Tut | Kill_FTJ 
 ID_LOCATION = {v: k for k, v in location_ids.items()}
 
 def create_locations(world : "DOS2") -> None:

@@ -172,7 +172,8 @@ async def game_watcher(ctx: DOS2ClientContext):
             new_locations = [loc for loc in dos2LocationsToSend if loc not in sent_locations]
             sending_ids = []
             for location in new_locations:
-                loc_id = dos2_locations.location_ids.get(location)
+                displayname = dos2_locations.INTERNAL_TO_DISPLAY.get(location)
+                loc_id = dos2_locations.ID_LOCATION.get(displayname)
                 if loc_id is None:
                     logger.warning(f"Unknown DOS2 location in ap_out.json: {location}")
                     sent_locations.add(location)
@@ -201,7 +202,7 @@ async def game_watcher(ctx: DOS2ClientContext):
             items_to_write = []
             for network_item in ctx.items_received:
                 item_name = ctx.item_names.lookup_in_game(network_item.item)
-                description = dos2_items.ITEM_NAME_TO_DESCRIPTION.get(item_name, item_name)
+                description = dos2_items.ITEM_NAME_TO_INTERNAL.get(item_name, item_name)
                 sender = ctx.player_names.get(network_item.player, str(network_item.player))
                 items_to_write.append(
                     {
