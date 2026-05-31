@@ -12,7 +12,7 @@ def create_and_connect_regions(world : "DOS2") -> None:
 def create_regions(world: "DOS2") -> None:
     world.multiworld.regions += [
         create_region("Tutorial", world),
-        create_region("Fort joy", world),
+        create_region("Fort Joy", world),
     ]
 
 
