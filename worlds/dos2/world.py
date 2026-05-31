@@ -20,7 +20,7 @@ class DOS2(World):
     web = web_world.DOS2WebWorld()
 
     def create_regions(self):
-        regions.create_regions(self)
+        regions.create_and_connect_regions(self)
         locations.create_locations(self)
 
     def set_rules(self):
