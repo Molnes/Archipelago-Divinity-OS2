@@ -9,10 +9,17 @@ if TYPE_CHECKING:
 
 
 from BaseClasses import Location
-from worlds.dos2.world import DOS2
 
 class DOS2Location(Location):
     game = "Divinty Original Sins 2"
+
+Quest_Tut = {
+    "TUT_ShipMurder": "Escaped the Shipped",
+    "TUT_ShipInvestigation": "Found the murderer on the ship",
+    "CORE_Chapter1": "Core Chapter 1 Done",
+}
+Quest_Tut_id = {location: number for (number, location) in enumerate(Quest_Tut, 0x0)}
+
 
 Kill_Tut = {
 "S_TUT_LowerDeck_PrayingMagister_096479c9-a702-4161-a5ba-fb2b3312bf76": "Magister Viktar - (57; -248)",
@@ -50,12 +57,7 @@ Kill_Tut = {
 "S_TUT_LowerDeck_LohseSongGirl1_a681c125-8493-4046-ab1f-6c2201336a22": "Trice - (41; -236)",
 
 }
-
-Quest_Tut = {
-    "TUT_ShipMurder": "Escaped the Shipped",
-    "TUT_ShipInvestigation": "Found the murderer on the ship",
-    "CORE_Chapter1": "Core Chapter 1 Done",
-}
+Kill_Tut_id = {location: number for (number, location) in enumerate(Kill_Tut, 0x40)}
 
 Quest_FTJ = {
     "FTJ_Escape": "",
@@ -126,7 +128,7 @@ Quest_FTJ = {
     "FTJ_SW_BatteredAndCornered": "",
     "CaptainArmour": "",
 }
-
+Quest_FTJ_id = {location: number for (number, location) in enumerate(Quest_FTJ, 0x80)}
 
 Kill_FTJ = {
     
@@ -246,11 +248,14 @@ Kill_FTJ = {
     "S_FTJ_SW_FinalBattleMagister_Gheist_06082187-829f-43e1-b3bb-f3242a70904d": "Gheist - (564 306)",
     "S_FTJ_SW_FinalBattle_Voidwoken_7dcf3cc2-d015-4aff-9949-71fc539fcc73": "Voidwoken Drillworm - (594 408)",
 }
+Kill_FTJ_id = {location: number for (number, location) in enumerate(Kill_FTJ, 0xC0)}
 
-def create_locations(world : DOS2) -> None:
+location_ids = Quest_FTJ_id | Kill_Tut_id | Quest_FTJ_id | Kill_FTJ_id
+
+def create_locations(world : "DOS2") -> None:
     tutorial = world.get_region("Tutorial")
     fort_joy = world.get_region("Fort Joy")
-    tutorial.add_locations({"location_name": {location:number} for (location, number) in enumerate(Quest_Tut, 0x0)})
-    tutorial.add_locations({"location_name": {location:number} for (location, number) in enumerate(Kill_Tut, 0x40)})
-    fort_joy.add_locations({"location_name": {location:number} for (location, number) in enumerate(Quest_FTJ, 0x80)})
-    fort_joy.add_locations({"location_name": {location:number} for (location, number) in enumerate(Kill_FTJ, 0xC0)})
+    tutorial.add_locations()
+    tutorial.add_locations()
+    fort_joy.add_locations()
+    fort_joy.add_locations()

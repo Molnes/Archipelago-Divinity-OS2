@@ -11,7 +11,7 @@ class DOS2(World):
     """
     game = "Divinity: Original Sin 2"
     item_name_to_id = items.ITEM_NAME_TO_ID
-    location_name_to_id = locations.LOCATION_NAME_TO_ID
+    location_name_to_id = locations.location_ids
     origin_region_name = "TUT - Starting Deck"
     options_dataclass = options.DOS2Options
     options: options.DOS2Options

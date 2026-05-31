@@ -5,7 +5,7 @@ from BaseClasses import Region
 if TYPE_CHECKING:
     from .world import DOS2
 
-def create_and_connect_regions(world : DOS2) -> None:
+def create_and_connect_regions(world : "DOS2") -> None:
     create_regions(world)
     connect_regions(world)
 
@@ -19,5 +19,5 @@ def create_regions(world: "DOS2") -> None:
 def create_region(name: str, world: "DOS2"):
     return Region(name, world.player, world.multiworld)
 
-def connect_regions(world: DOS2) -> None:
+def connect_regions(world: "DOS2") -> None:
     world.get_region("Tutorial").connect(world.get_region("Fort Joy"), "Tutorial to Fort Joy")
