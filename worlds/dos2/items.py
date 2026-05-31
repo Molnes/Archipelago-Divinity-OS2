@@ -26,7 +26,7 @@ class DOS2SkillMetaData(DOS2TreasureMetadata):
         self.sourceCost = sourceCost
 
 
-Skilloffset = 0xFF
+SKILLOFFSET = 0xFF
 TreasureOffset = 0x00
 
 SKILLS = {
@@ -237,10 +237,7 @@ SKILLS = {
         ("ElementalArrowheads", "Elemental ArrowHeads", 1, 0),
         ("BlessedSmokeCloud", "Blessed SmokeCloud", 4, 2),
         ("BlackShroud", "Black Shroud", 3, 1),
-        (
-            "Windwalker",
-            "Wind Walker",
-        ),
+        ("Windwalker", "Wind Walker", 1,0),
         ("Fatality", "Fatality", 1, 0),
         ("DaggersDrawn", "Daggers Drawn", 3, 2),
         ("TargetedOilSurface", "?", 0, 0),
@@ -301,7 +298,7 @@ def _build_skill_items():
 _SKILL_ITEM_NAMES, ITEM_NAME_TO_DESCRIPTION = _build_skill_items()
 
 # Every item must have a unique integer ID associated with it.
-ITEM_NAME_TO_ID = {name: ITEM_ID_BASE + index for index, name in enumerate(_SKILL_ITEM_NAMES)}
+ITEM_NAME_TO_ID = {name: index for index, name in enumerate(_SKILL_ITEM_NAMES, SKILLOFFSET)}
 ID_TO_ITEM_NAME = {id_: name for name, id_ in ITEM_NAME_TO_ID.items()}
 DEFAULT_ITEM_CLASSIFICATIONS = {name: ItemClassification.useful for name in ITEM_NAME_TO_ID}
 

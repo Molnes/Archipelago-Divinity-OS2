@@ -20,7 +20,6 @@ Quest_Tut = {
 }
 Quest_Tut_id = {location: number for (number, location) in enumerate(Quest_Tut, 0x0)}
 
-
 Kill_Tut = {
 "S_TUT_LowerDeck_PrayingMagister_096479c9-a702-4161-a5ba-fb2b3312bf76": "Magister Viktar - (57; -248)",
 "S_TUT_Sheep_122fdf4d-59df-46ea-8192-93700598b51f": "Sheep - (29; -247)",
@@ -255,7 +254,7 @@ location_ids = Quest_FTJ_id | Kill_Tut_id | Quest_FTJ_id | Kill_FTJ_id
 def create_locations(world : "DOS2") -> None:
     tutorial = world.get_region("Tutorial")
     fort_joy = world.get_region("Fort Joy")
-    tutorial.add_locations()
-    tutorial.add_locations()
-    fort_joy.add_locations()
-    fort_joy.add_locations()
+    tutorial.add_locations(Quest_Tut, DOS2Location)
+    tutorial.add_locations(Kill_Tut, DOS2Location)
+    fort_joy.add_locations(Quest_FTJ_id, DOS2Location)
+    fort_joy.add_locations(Kill_FTJ_id, DOS2Location)
