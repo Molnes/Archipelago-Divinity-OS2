@@ -30,12 +30,12 @@ class DOS2SkillMetaData(DOS2TreasureMetadata):
 SKILLOFFSET = 0xFF
 SKILLS = {
     "Cone_": [
-        ("RadialBlowback", "?", 0, 0),
+        ("RadialBlowback", "Blowback", 0, 0),
         ("Flamebreath", "Dragon's Blaze", 0, 0),
-        ("GroundSmash", "?", 0, 0),
+        ("GroundSmash", "Battle Stomp", 1, 0),
         ("SteamLance", "Steam Lance", 3, 2),
         ("CorrosiveSpray", "Corrosive Spray", 4, 0),
-        ("Shatter", "?", 0, 0),
+        ("Shatter", "Deep Freeze", 3, 0),
         ("SilencingStare", "Silencing Stare", 0, 1),
     ],
     "Dome_": [("CircleOfProtection", "Circle Of Protection", 0, 1)],
