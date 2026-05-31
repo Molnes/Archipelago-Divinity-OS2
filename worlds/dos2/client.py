@@ -160,7 +160,7 @@ async def game_watcher(ctx: DOS2ClientContext):
             new_locations = [loc for loc in dos2LocationsToSend if loc not in sent_locations]
             sending_ids = []
             for location in new_locations:
-                loc_id = dos2_locations.resolve_location_id(location)
+                loc_id = dos2_locations.ID_LOCATION.get(location)
                 if loc_id is None:
                     logger.warning(f"Unknown DOS2 location in ap_out.json: {location}")
                     sent_locations.add(location)

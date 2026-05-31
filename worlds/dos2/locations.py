@@ -250,6 +250,7 @@ Kill_FTJ = {
 Kill_FTJ_id = {location: number for (number, location) in enumerate(Kill_FTJ, 0xD0)}
 
 location_ids = Quest_FTJ_id | Kill_Tut_id | Quest_FTJ_id | Kill_FTJ_id
+ID_LOCATION = {v: k for k, v in location_ids.items()}
 
 def create_locations(world : "DOS2") -> None:
     tutorial = world.get_region("Tutorial")
