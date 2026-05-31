@@ -61,6 +61,19 @@ class DOS2ClientContext(CommonContext):
         else:
             self.file_dir = ""
 
+    async def server_auth(self, password_requested: bool = False):
+        if password_requested and not self.password:
+            await super(DOS2ClientContext,self).server_auth(password_requested)
+        await self.get_username()
+        await self.send_connect()
+
+    @property
+    def endpoints(self):
+        if self.server:
+            return [self.server]
+        else:
+            return []
+
     def run_gui(self):
         from kvui import GameManager
 
@@ -117,8 +130,7 @@ class DOS2ClientContext(CommonContext):
                 file_layout.add_widget(self.file_dir_input)
                 file_layout.add_widget(apply_button)
 
-                # Insert just above the command input row
-                self.grid.add_widget(file_layout, index=1)
+                self.grid.add_widget(file_layout, index=0)
 
                 return container
 
