@@ -247,7 +247,7 @@ Kill_FTJ = {
     "S_FTJ_SW_FinalBattleMagister_Gheist_06082187-829f-43e1-b3bb-f3242a70904d": "Gheist - (564 306)",
     "S_FTJ_SW_FinalBattle_Voidwoken_7dcf3cc2-d015-4aff-9949-71fc539fcc73": "Voidwoken Drillworm - (594 408)",
 }
-Kill_FTJ_id = {location: number for (number, location) in enumerate(Kill_FTJ, 0xC0)}
+Kill_FTJ_id = {location: number for (number, location) in enumerate(Kill_FTJ, 0xD0)}
 
 location_ids = Quest_FTJ_id | Kill_Tut_id | Quest_FTJ_id | Kill_FTJ_id
 

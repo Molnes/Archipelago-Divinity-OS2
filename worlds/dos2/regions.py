@@ -20,4 +20,6 @@ def create_region(name: str, world: "DOS2"):
     return Region(name, world.player, world.multiworld)
 
 def connect_regions(world: "DOS2") -> None:
-    world.get_region("Tutorial").connect(world.get_region("Fort Joy"), "Tutorial to Fort Joy")
+    tutorial = world.get_region("Tutorial")
+    fort_joy = world.get_region("Fort Joy")
+    tutorial.connect(fort_joy, "Tutorial To Fort Joy")
