@@ -9,7 +9,6 @@ class DOS2(World):
     """
     Divinity: Original Sin 2
     """
-
     game = "Divinity: Original Sin 2"
     item_name_to_id = items.ITEM_NAME_TO_ID
     location_name_to_id = locations.LOCATION_NAME_TO_ID
@@ -22,7 +21,7 @@ class DOS2(World):
 
     def create_regions(self):
         regions.create_regions(self)
-        locations.create_all_locations(self)
+        locations.create_locations(self)
 
     def set_rules(self):
         # No logic rules yet.

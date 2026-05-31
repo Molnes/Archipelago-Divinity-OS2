@@ -8,18 +8,47 @@ if TYPE_CHECKING:
     from .world import DOS2
 
 
+from BaseClasses import Location
+from worlds.dos2.world import DOS2
+
+class DOS2Location(Location):
+    game = "Divinty Original Sins 2"
+
 Kill_Tut = {
-    "S_TUT_Sheep_122fdf4d-59df-46ea-8192-93700598b51f": "Mean Sheep",
-    "TUT_CargoDeck_Humans_Male_Magister_Grunt_000_a06e61dd-58c6-4119-99be-716c3a4fc1ef": "Cargo Prisoner Person",
-    "S_TUT_CargoHold_UnrulyPrisoner_d7a61dc6-a249-4e97-9914-53ea24e320ae": "Prisoner",
-    "S_TUT_Magister6_b8e00c9c-8f50-4630-933b-958974866724": "Rick",
-    "S_TUT_Magister5_41d4c470-7aa1-4fba-8d46-16bb761b085a": "Murtof",
-    "S_TUT_TopDeckVoidling10_bd0123ae-26fd-4dad-8326-b6ae9a3fc1c5": "TopDeck Voidling 1",
-    "S_TUT_TopDeckVoidling11_2fcb5b84-875f-42bd-ac80-6f8495c6a47c": "TopDeck Voidling 2",
-    "TUT_Creatures_Voidwoken_Hatchling_2b3c61be-5b6b-4481-9962-d199d8153e49": "Rescue Voidwoken 1",
-    "TUT_Creatures_Voidwoken_Hatchling_ca3bf4f3-6854-45ca-abaf-2a9fdb0c9abb": "Rescue Voidwoken 2",
-    "TUT_Creatures_Voidwoken_Hatchling_87b23430-14a4-4c00-8a3f-214393dbd7c7": "Rescue Voidwoken 3",
-    "TUT_Creatures_Voidwoken_Hatchling_7dd4f970-d43b-418e-961e-2511d63fffa8": "Rescue Voidwoken 4",
+"S_TUT_LowerDeck_PrayingMagister_096479c9-a702-4161-a5ba-fb2b3312bf76": "Magister Viktar - (57; -248)",
+"S_TUT_Sheep_122fdf4d-59df-46ea-8192-93700598b51f": "Sheep - (29; -247)",
+"S_TUT_MD_DeadMagister7_1403ab9b-aaa8-4aa3-9062-0c04a619e1f1": "Magister Knight - (12; -187)",
+"S_TUT_LowerDeck_SherlockMagister_16b46c26-5c0f-4567-84cf-8a1a68134a2e": "Magister Waters - (21; -251)",
+"S_TUT_MD_DeadMagister5_2d33316f-d660-4ed7-bd32-e253f54459ba": "Magister Priest Medwyn - (30; -177)",
+"S_TUT_TopDeckVoidling11_2fcb5b84-875f-42bd-ac80-6f8495c6a47c": "Viscous Voidling - (28; 18)",
+"S_TUT_TopDeckVoidling10_bd0123ae-26fd-4dad-8326-b6ae9a3fc1c5": "Viscous Voidling - (27; 16)",
+"S_TUT_Magister5_41d4c470-7aa1-4fba-8d46-16bb761b085a": "Magister Murtof - (77; -191)",
+"S_TUT_LowerDeck_Magister_Grunt_Investigator_000_47ab7059-829c-4523-adf2-6cf91fa3b29f": "Magister Jalen - (31; -243)",
+"S_TUT_DeadMagister_TentaclesTop_5bb96a55-cd6b-4db0-9af1-f1da42b8971d": "Magister Knight - (18; 19)",
+"S_TUT_MD_DeadMagister4_5bf1d00c-8e35-493f-88a0-fc649009763c": "Magister Swordsman - (37; -193)",
+"S_TUT_MD_DeadMagister3_7c8990c4-9771-471d-a9f8-f2849463119e": "Magister Knight - (35; -186)",
+"S_TUT_MD_DeadMagister2_7d40ca96-bac3-4883-96a0-565f3c06dfe8": "Magister Ranger - (45; -177)",
+"S_TUT_LowerDeck_LohseSongBoy1_835a993e-1bf1-4e6f-8922-20dd8b99bca4": "Paulie - (40; -235)",
+"S_TUT_LowerDeck_GruelServer_849900b9-e78d-47c7-87f3-c8d97f797d36": "Namiyah - (60; -241)",
+"S_TUT_MD_DeadMagister1_84b8d088-2358-4283-a225-7a18128677b0": "Magister Ceri - (48; -191)",
+"Humans_Male_RedFaction_Ranger_000_84f56b64-7990-472e-8b62-824c63db3867": "Magister Ranger - (19; -188)",
+"S_TUT_Humans_Female_Magister_Priest_000_9d17cf06-6fad-49a8-82de-54518a9bf5df": "Magister Siwan - (15; -308)",
+"TUT_CargoDeck_Humans_Male_Magister_Grunt_000_a06e61dd-58c6-4119-99be-716c3a4fc1ef": "Magister Rennart - (67; -301)",
+"S_TUT_LowerDeck_MagisterMurderSceneGuard_000_a48a580b-6ba5-4b65-ad71-cc422ccff47b": "Magister Cadoc - (23; -246)",
+"S_TUT_LowerDeck_Officer_X_a658e0ea-db65-4be9-82c0-40629a2d0340": "Magister William - (75; -244)",
+"S_TUT_LowerDeck_CrossBowMagister_001_b2ec3611-6484-4168-9039-c092bcdea52d": "Magister Ygritte - (76; -243)",
+"S_TUT_TopDeck_LivingMagister1_b5e74192-498f-4eb3-844a-4a817f9802d3": "Magister Knight - (23; 17)",
+"S_TUT_Magister6_b8e00c9c-8f50-4630-933b-958974866724": "Magister Ricks - (77; -190)",
+
+"S_TUT_LowerDeck_ExitDoorGuard_001_bf967ae2-69a9-4791-8f80-ad72236edaf7": "Magister Payde - (63; -233)",
+"S_TUT_LowerDeck_CrossBowMagister_000_c4531ec5-203f-4ff2-95f6-ac14b9cf7994": "Magister Yona - (74; -243)",
+"S_TUT_CargoHold_UnrulyPrisoner_d7a61dc6-a249-4e97-9914-53ea24e320ae": "Hemwar - (73; -312)",
+"S_TUT_TopDeckMagister1_de400bda-b14e-4cff-b5f5-737781437902": "Magister Knight - (52; 24)",
+"S_TUT_TopDeckMagister2_e2d47d73-4f9d-4de2-8a3c-c774a0ea114a": "Captain Kalwyn - (52; 26)",
+"Humans_Female_Redfaction_Inquisitor_A_000_f4141f6d-e03e-4179-bb6b-b35f9a0c37d1": "Magister Inquisitor - (12; -181)",
+"S_TUT_MD_DeadMagister6_fc0b8aff-7b96-4302-ba2b-94e0a7c3f9fb": "Magister Swordsman - (30; -185)",
+"S_TUT_LowerDeck_LohseSongGirl1_a681c125-8493-4046-ab1f-6c2201336a22": "Trice - (41; -236)",
+
 }
 
 Quest_Tut = {
@@ -98,18 +127,18 @@ Quest_FTJ = {
     "CaptainArmour": "",
 }
 
-Kill_FTJBeach = {
-    # Beach Beginning
+
+Kill_FTJ = {
+    
+    #Beach Beginning
     "S_FTJ_BeachVw_001_08348b3a-bded-4811-92ce-f127aa4310e0": "Fort Joy Beach - VoidWoken 1",
     "S_FTJ_BeachVw_002_1832a661-0e21-421f-acaa-a7e66e813b14": "Fort Joy Beach - VoidWoken 2",
     # Turtles
     "S_FTJ_SpikedTurtle_01_abd3afae-a6e5-452c-a94a-db57826dd082": "Turtle - (258 363)",
     "S_FTJ_SpikedTurtle_03_fb4618f9-9c61-4640-a32c-e4735783e878": "Ancient Turtle - (271 365)",
     "S_FTJ_SpikedTurtle_04_f37cb16e-027e-4a21-8504-d6cab12d9098": "Turtle - (283 349)",
-}
-
-Kill_FTJ = {
-    # Teleporting Crocs
+    
+    #Teleporting Crocs
     "S_FTJ_TeleporteQuestrCroc_001_bc1a10a1-51b6-42c5-b517-827565f6512b": "Saltwater Crocodile - (113 217)",
     "S_FTJ_TeleporteQuestrCroc_002_6be95689-ab8f-4edf-ba46-77a068594a19": "Saltwater Crocodile - (124 224)",
     "S_FTJ_TeleporteQuestrCroc_003_7cf7d4d4-de1a-4ac7-999a-1f128fac3789": "Saltwater Crocodile - (116 231)",
@@ -140,10 +169,8 @@ Kill_FTJ = {
     "S_FTJ_SoulJarTrapSkeleton_005_b104ee53-94a5-4d2b-a9ed-5345327a4e42": "Blademaster Guardian - (378 565)",
     "S_FTJ_SoulJarTrapSkeleton_006_a46127af-ff0f-452f-a2e1-260abd2a1001": "Eagle-Eyed Guardian - (379 577)",
     "S_FTJ_SoulJarTrapSkeleton_007_deffe0d5-11f5-44a9-b50f-497f200ad4f7": "Traitorous Guardian - (370 550)",
-}
 
-Kill_PastFTJ = {
-    # Windego
+    #Windego
     "S_GLO_Windego_d783285f-d3be-4cba-8333-db8976cef182": "Windego - (357 192)",
     # Undead next to Windego
     "S_FTJ_SW_GuardUndead1_416ab3e9-0547-4dd3-b3b8-8b36f75707c1": "Necromancer Tasmyn - (606 606)",
@@ -220,86 +247,10 @@ Kill_PastFTJ = {
     "S_FTJ_SW_FinalBattle_Voidwoken_7dcf3cc2-d015-4aff-9949-71fc539fcc73": "Voidwoken Drillworm - (594 408)",
 }
 
-
-LOCATION_ID_BASE = 0xE0000
-
-KILL_GROUPS = [Kill_Tut, Kill_FTJBeach, Kill_FTJ, Kill_PastFTJ]
-QUEST_GROUPS = [Quest_Tut, Quest_FTJ]
-
-
-def _build_location_entries():
-    entries: list[tuple[str, str]] = []
-    for group in KILL_GROUPS:
-        for key, display in group.items():
-            mod_name = f"Kill-{key}"
-            ap_name = f"Kill: {display or key}"
-            entries.append((mod_name, ap_name))
-    for group in QUEST_GROUPS:
-        for key, display in group.items():
-            mod_name = f"Quest-{key}"
-            ap_name = f"Quest: {display or key}"
-            entries.append((mod_name, ap_name))
-    return entries
-
-
-_ALL_LOCATION_ENTRIES = _build_location_entries()
-MOD_LOCATION_NAME_TO_AP_NAME = {mod: ap for mod, ap in _ALL_LOCATION_ENTRIES}
-LOCATION_NAME_TO_ID = {ap: LOCATION_ID_BASE + index for index, (_, ap) in enumerate(_ALL_LOCATION_ENTRIES)}
-MOD_LOCATION_NAME_TO_ID = {mod: LOCATION_NAME_TO_ID[ap] for mod, ap in _ALL_LOCATION_ENTRIES}
-
-KILL_LOCATION_NAMES = [ap for mod, ap in _ALL_LOCATION_ENTRIES if mod.startswith("Kill-")]
-QUEST_LOCATION_NAMES = [ap for mod, ap in _ALL_LOCATION_ENTRIES if mod.startswith("Quest-")]
-
-
-class DOS2Location(Location):
-    game = "Divinity: Original Sin 2"
-
-
-def get_location_names_with_ids(location_names: list[str]) -> dict[str, int | None]:
-    return {location_name: LOCATION_NAME_TO_ID[location_name] for location_name in location_names}
-
-
-def _is_option_enabled(options, attribute: str) -> bool:
-    if options is None:
-        return True
-    value = getattr(options, attribute, 1)
-    try:
-        return int(value) == 1
-    except Exception:
-        return True
-
-
-def get_location_names(options=None) -> list[str]:
-    names: list[str] = []
-    if _is_option_enabled(options, "kill_sanity"):
-        names.extend(KILL_LOCATION_NAMES)
-    if _is_option_enabled(options, "quest_sanity"):
-        names.extend(QUEST_LOCATION_NAMES)
-    return names
-
-
-def resolve_location_id(location_name: str) -> int | None:
-    if location_name in LOCATION_NAME_TO_ID:
-        return LOCATION_NAME_TO_ID[location_name]
-    if location_name in MOD_LOCATION_NAME_TO_ID:
-        return MOD_LOCATION_NAME_TO_ID[location_name]
-    return None
-
-
-def create_all_locations(world: "DOS2") -> None:
-    location_names = get_location_names(world.options)
-    if not location_names:
-        return
-
-    try:
-        region = world.get_region(world.origin_region_name)
-    except Exception:
-        if world.regions:
-            region = world.regions[0]
-        else:
-            from BaseClasses import Region
-
-            region = Region(world.origin_region_name, world.player, world.multiworld)
-            world.regions.append(region)
-
-    region.add_locations(get_location_names_with_ids(location_names), DOS2Location)
+def create_locations(world : DOS2) -> None:
+    tutorial = world.get_region("Tutorial")
+    fort_joy = world.get_region("Fort Joy")
+    tutorial.add_locations({"location_name": {location:number} for (location, number) in enumerate(Quest_Tut, 0x0)})
+    tutorial.add_locations({"location_name": {location:number} for (location, number) in enumerate(Kill_Tut, 0x30)})
+    fort_joy.add_locations({"location_name": {location:number} for (location, number) in enumerate(Quest_FTJ, 0x60)})
+    fort_joy.add_locations({"location_name": {location:number} for (location, number) in enumerate(Kill_FTJ, 0x90)})
